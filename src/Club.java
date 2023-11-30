@@ -109,7 +109,7 @@ public class Club implements Playable {
     @Override
     public void play() {
         portugueseLeague.simulate();
-        if(loseStreak == 1) {
+        if(loseStreak == 3) {
             player.setFired(true);
             player = null;
             name = name.replaceAll("\u001B\\[[;\\d]*m", "");
