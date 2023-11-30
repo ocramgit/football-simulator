@@ -1,3 +1,4 @@
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Menu {
@@ -38,7 +39,17 @@ public class Menu {
                         gameCore.getPortugueseClubListTeams();
                         System.out.println("\n\uD835\uDE4B\uD835\uDE61\uD835\uDE5A\uD835\uDE56\uD835\uDE68\uD835\uDE5A \uD835\uDE68\uD835\uDE5A\uD835\uDE61\uD835\uDE5A\uD835\uDE58\uD835\uDE69 \uD835\uDE56 \uD835\uDE58\uD835\uDE61\uD835\uDE6A\uD835\uDE57 \uD835\uDE69\uD835\uDE64 \uD835\uDE68\uD835\uDE5A\uD835\uDE5A \uD835\uDE69\uD835\uDE5D\uD835\uDE5A \uD835\uDE65\uD835\uDE61\uD835\uDE56\uD835\uDE6E\uD835\uDE5A\uD835\uDE67\uD835\uDE68:");
                         System.out.print("Choice: ");
-                        int choice = sc.nextInt();
+                        int choice;
+                        while (true) {
+                            try {
+                                System.out.print("\nSelect a club: ");
+                                choice = sc.nextInt() - 1;
+                                break;
+                            } catch (InputMismatchException e) {
+                                System.out.println("\uD835\uDE44\uD835\uDE63\uD835\uDE6B\uD835\uDE56\uD835\uDE61\uD835\uDE5E\uD835\uDE59 \uD835\uDE63\uD835\uDE6A\uD835\uDE62\uD835\uDE57\uD835\uDE5A\uD835\uDE67.");
+                                sc.next();
+                            }
+                        }
                         gameCore.getMoreClubPlayers(choice);
                 }
             } else {

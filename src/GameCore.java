@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.Comparator;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class GameCore {
@@ -26,31 +27,48 @@ public class GameCore {
     private boolean isValid = false;
 
     public void addPlayerToClub() {
-            getPortugueseClubListTeams();
-            System.out.print("\uD835\uDC7A\uD835\uDC86\uD835\uDC8D\uD835\uDC86\uD835\uDC84\uD835\uDC95 \uD835\uDC95\uD835\uDC89\uD835\uDC86 \uD835\uDC84\uD835\uDC8D\uD835\uDC96\uD835\uDC83: ");
-            int clubIndex = Integer.parseInt(sc.next());
+        getPortugueseClubListTeams();
 
-            if (player.getClub() != null && player.getClub().equals(portugueseClubList.get(clubIndex - 1))) {
-                System.out.println("\n\uD835\uDE54\uD835\uDE64\uD835\uDE6A \uD835\uDE58\uD835\uDE56\uD835\uDE63'\uD835\uDE69 \uD835\uDE68\uD835\uDE5A\uD835\uDE61\uD835\uDE5A\uD835\uDE58\uD835\uDE69 \uD835\uDE69\uD835\uDE5D\uD835\uDE5A \uD835\uDE68\uD835\uDE56\uD835\uDE62\uD835\uDE5A \uD835\uDE58\uD835\uDE61\uD835\uDE6A\uD835\uDE57. \uD835\uDE54\uD835\uDE64\uD835\uDE6A \uD835\uDE59\uD835\uDE64\uD835\uDE63'\uD835\uDE69 \uD835\uDE5D\uD835\uDE56\uD835\uDE6B\uD835\uDE5A \uD835\uDE56 \uD835\uDE5C\uD835\uDE64\uD835\uDE64\uD835\uDE59 \uD835\uDE67\uD835\uDE5A\uD835\uDE61\uD835\uDE56\uD835\uDE69\uD835\uDE5E\uD835\uDE64\uD835\uDE63\uD835\uDE68\uD835\uDE5D\uD835\uDE5E\uD835\uDE65.\n");
-                addPlayerToClub();
-            } else {
-                player.setClub(portugueseClubList.get(clubIndex - 1));
-                portugueseClubList.get(clubIndex - 1).setPlayer(player);
-                player.setFired(false);
-                portugueseClubList.get(clubIndex - 1).setName("\u001b[0m\u001b[4m" + portugueseClubList.get(clubIndex - 1).getName() + "\u001B[0m");
-                System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+        int clubIndex;
+        while (true) {
+            try {
+                System.out.print("\uD835\uDC7A\uD835\uDC86\uD835\uDC8D\uD835\uDC86\uD835\uDC84\uD835\uDC95 \uD835\uDC95\uD835\uDC89\uD835\uDC86 \uD835\uDC84\uD835\uDC8D\uD835\uDC96\uD835\uDC83: ");
+                clubIndex = sc.nextInt() - 1;
+
+                if (clubIndex >= 0 && clubIndex < portugueseClubList.size()) {
+                    break;
+                } else {
+                    System.out.println("\uD835\uDE44\uD835\uDE63\uD835\uDE6B\uD835\uDE56\uD835\uDE61\uD835\uDE5E\uD835\uDE59 \uD835\uDE58\uD835\uDE61\uD835\uDE6A\uD835\uDE57. \uD835\uDE4E\uD835\uDE5A\uD835\uDE61\uD835\uDE5A\uD835\uDE58\uD835\uDE69 \uD835\uDE56\uD835\uDE63\uD835\uDE64\uD835\uDE69\uD835\uDE5D\uD835\uDE5A\uD835\uDE67.");
+                }
+            } catch (InputMismatchException e) {
+                System.out.println("\uD835\uDE44\uD835\uDE63\uD835\uDE6B\uD835\uDE56\uD835\uDE61\uD835\uDE5E\uD835\uDE59 \uD835\uDE63\uD835\uDE6A\uD835\uDE62\uD835\uDE57\uD835\uDE5A\uD835\uDE67.");
+                sc.next();
             }
+        }
+
+        if (player.getClub() != null && player.getClub().equals(portugueseClubList.get(clubIndex))) {
+            System.out.println("\n\uD835\uDE54\uD835\uDE64\uD835\uDE6A \uD835\uDE58\uD835\uDE56\uD835\uDE63'\uD835\uDE69 \uD835\uDE68\uD835\uDE5A\uD835\uDE61\uD835\uDE5A\uD835\uDE58\uD835\uDE69 \uD835\uDE69\uD835\uDE5D\uD835\uDE5A \uD835\uDE68\uD835\uDE56\uD835\uDE62\uD835\uDE5A \uD835\uDE58\uD835\uDE61\uD835\uDE6A\uD835\uDE57. \uD835\uDE54\uD835\uDE64\uD835\uDE6A \uD835\uDE59\uD835\uDE64\uD835\uDE63'\uD835\uDE69 \uD835\uDE5D\uD835\uDE56\uD835\uDE6B\uD835\uDE5A \uD835\uDE56 \uD835\uDE5C\uD835\uDE64\uD835\uDE64\uD835\uDE59 \uD835\uDE67\uD835\uDE5A\uD835\uDE61\uD835\uDE56\uD835\uDE69\uD835\uDE5E\uD835\uDE64\uD835\uDE63\uD835\uDE68\uD835\uDE5D\uD835\uDE5E\uD835\uDE65.\n");
+            addPlayerToClub();
+        } else {
+            player.setClub(portugueseClubList.get(clubIndex));
+            portugueseClubList.get(clubIndex).setPlayer(player);
+            player.setFired(false);
+            portugueseClubList.get(clubIndex).setName("\u001b[0m\u001b[4m" + portugueseClubList.get(clubIndex).getName() + "\u001B[0m");
+            System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+        }
     }
+
+
 
     public void rules() {
         System.out.println("\n\u001b[37mThis is a fantasy game inspired by the system of a football match season.\nChoose a team, simulate each round, buy or sell players, see the standings, \nclimb levels, see the players in each team and most importantly: have fun.\u001b[0m\n");
     }
 
     public void simulate() {
-            player.getClub().setName("\u001b[47;1m" + player.getClub().getName() + "\u001b[0m");
-            player.getClub().play();
-            setAverageClub();
-            checkClassification();
+        player.getClub().setName("\u001b[47;1m" + player.getClub().getName() + "\u001b[0m");
+        player.getClub().play();
+        setAverageClub();
+        checkClassification();
     }
 
     public void setAverageClub() {
@@ -101,7 +119,7 @@ public class GameCore {
 
             System.out.println(colorCode + position + "º\u001B[0m" + output);
 
-                position++;
+            position++;
         }
     }
 
@@ -115,7 +133,7 @@ public class GameCore {
         int position = 1;
 
         for (Club club : portugueseClubList) {
-            if(player.getClub().equals(club)) {
+            if (player.getClub().equals(club)) {
                 classification = position;
             }
             position++;
@@ -350,7 +368,7 @@ public class GameCore {
 
     public void getClubPlayers(Club club) {
         for (FootballPlayer footballPlayer : club.getSquad()) {
-            System.out.println("Name: " + footballPlayer.getName() + " | Cost: " + footballPlayer.getCost() + "€ | Strength: " + footballPlayer.getStrength()+ " | Goals: " + footballPlayer.getGoals() + " | Assists: " + footballPlayer.getAssists());
+            System.out.println("Name: " + footballPlayer.getName() + " | Cost: " + footballPlayer.getCost() + "€ | Strength: " + footballPlayer.getStrength() + " | Goals: " + footballPlayer.getGoals() + " | Assists: " + footballPlayer.getAssists());
         }
     }
 
@@ -359,7 +377,7 @@ public class GameCore {
 
         for (Club club : portugueseClubList) {
             if (player != null && player.getClub() != null && player.getClub().equals(club)) {
-                System.out.println("\u001b[1m\u001b[31m" + count++ + " | " + club.getName() + " | \uD835\uDE4E\uD835\uDE69\uD835\uDE67\uD835\uDE5A\uD835\uDE63\uD835\uDE5C\uD835\uDE69\uD835\uDE5D: " + club.getAverage_strength()+"\u001b[0m");
+                System.out.println("\u001b[1m\u001b[31m" + count++ + " | " + club.getName() + " | \uD835\uDE4E\uD835\uDE69\uD835\uDE67\uD835\uDE5A\uD835\uDE63\uD835\uDE5C\uD835\uDE69\uD835\uDE5D: " + club.getAverage_strength() + "\u001b[0m");
             } else {
                 System.out.println(count++ + " | \u001b[33m" + club.getName() + "\u001b[0m | \uD835\uDE4E\uD835\uDE69\uD835\uDE67\uD835\uDE5A\uD835\uDE63\uD835\uDE5C\uD835\uDE69\uD835\uDE5D: " + club.getAverage_strength());
             }
@@ -393,7 +411,7 @@ public class GameCore {
     }
 
     public void getMoreClubPlayers(int choice) {
-        if(choice < portugueseClubList.size()) {
+        if (choice < portugueseClubList.size()) {
             for (FootballPlayer footballPlayer : portugueseClubList.get(choice - 1).getSquad()) {
                 System.out.println("Name: \u001b[33m" + footballPlayer.getName() + "\u001b[0m | \u001b[31m\uD835\uDE3E\uD835\uDE64\uD835\uDE68\uD835\uDE69:\u001b[0m " + footballPlayer.getCost() + "€ | \u001b[31m\uD835\uDE4E\uD835\uDE69\uD835\uDE67\uD835\uDE5A\uD835\uDE63\uD835\uDE5C\uD835\uDE69\uD835\uDE5D:\u001b[0m " + footballPlayer.getStrength() + " | \u001b[33m\uD835\uDE42\uD835\uDE64\uD835\uDE56\uD835\uDE61\uD835\uDE68:\u001b[0m " + footballPlayer.getGoals() + " | \u001b[33m\uD835\uDE3C\uD835\uDE68\uD835\uDE68\uD835\uDE5E\uD835\uDE68\uD835\uDE69\uD835\uDE68:\u001b[0m " + footballPlayer.getAssists());
             }

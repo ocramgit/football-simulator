@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Club implements Playable {
@@ -125,9 +126,19 @@ public class Club implements Playable {
         System.out.println(0 + " > " + "\uD835\uDDE1\uD835\uDDFC\uD835\uDDEF\uD835\uDDFC\uD835\uDDF1\uD835\uDE06.");
 
         try {
-            System.out.print("\nPlayer to sell: ");
-            int choice = sc.nextInt() - 1;
+            int choice;
+            while (true) {
+                try {
+                    System.out.print("\nSelect a player to sell: ");
+                    choice = sc.nextInt() - 1;
+                    break;
+                } catch (InputMismatchException e) {
+                    System.out.println("\uD835\uDE44\uD835\uDE63\uD835\uDE6B\uD835\uDE56\uD835\uDE61\uD835\uDE5E\uD835\uDE59 \uD835\uDE63\uD835\uDE6A\uD835\uDE62\uD835\uDE57\uD835\uDE5A\uD835\uDE67.");
+                    sc.next();
+                }
+            }
             if (choice == -1) {
+                return;
             } else {
                 FootballPlayer player = squad.get(choice);
                 for (FootballPlayer footballPlayer : Market.getMarket()) {
@@ -162,8 +173,17 @@ public class Club implements Playable {
         if (Market.getMarket().isEmpty()) return;
         Market.seePlayersOnMarket();
         System.out.println(0 + " > " + "\uD835\uDDE1\uD835\uDDFC\uD835\uDDEF\uD835\uDDFC\uD835\uDDF1\uD835\uDE06.");
-        System.out.print("Option: ");
-        int choice = sc.nextInt() - 1;
+        int choice;
+        while (true) {
+            try {
+                System.out.print("\nSelect a player to buy: ");
+                choice = sc.nextInt() - 1;
+                break;
+            } catch (InputMismatchException e) {
+                System.out.println("\uD835\uDE44\uD835\uDE63\uD835\uDE6B\uD835\uDE56\uD835\uDE61\uD835\uDE5E\uD835\uDE59 \uD835\uDE63\uD835\uDE6A\uD835\uDE62\uD835\uDE57\uD835\uDE5A\uD835\uDE67.");
+                sc.next();
+            }
+        }
         if(choice == -1) {
             return;
         }
