@@ -1,6 +1,6 @@
 public class ClubFactory {
     public static Club create(ClubType clubType) {
-        switch (clubType) {
+        return switch (clubType) {
             case SPORTING_CP -> new Club(clubType.getName(), 1000000000);
             case SL_BENFICA -> new Club(clubType.getName(), 2000000000);
             case FC_PORTO -> new Club(clubType.getName(), 1500000000);
@@ -19,7 +19,6 @@ public class ClubFactory {
             case RIO_AVE_FC -> new Club(clubType.getName(), 510000000);
             case GD_CHAVES -> new Club(clubType.getName(), 310000000);
             case FC_AROUCA -> new Club(clubType.getName(), 1000040000);
-        }
-        return null;
+        };
     }
 }

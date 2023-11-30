@@ -41,7 +41,7 @@ public class PortugueseLeague extends League {
             if (team1.getSquad().size() < 11) team1.buyComputer();
             if (team2.getSquad().size() < 11) team2.buyComputer();
         } else {
-            System.out.println("The season already ended. Check classifications.");
+            System.out.println("\n\uD835\uDE4F\uD835\uDE5D\uD835\uDE5A \uD835\uDE68\uD835\uDE5A\uD835\uDE56\uD835\uDE68\uD835\uDE64\uD835\uDE63 \uD835\uDE56\uD835\uDE61\uD835\uDE67\uD835\uDE5A\uD835\uDE56\uD835\uDE59\uD835\uDE6E \uD835\uDE5A\uD835\uDE63\uD835\uDE59\uD835\uDE5A\uD835\uDE59. \uD835\uDE3E\uD835\uDE5D\uD835\uDE5A\uD835\uDE58\uD835\uDE60 \uD835\uDE58\uD835\uDE61\uD835\uDE56\uD835\uDE68\uD835\uDE68\uD835\uDE5E\uD835\uDE5B\uD835\uDE5E\uD835\uDE58\uD835\uDE56\uD835\uDE69\uD835\uDE5E\uD835\uDE64\uD835\uDE63\uD835\uDE68.\n");
         }
     }
 

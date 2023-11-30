@@ -109,7 +109,7 @@ public class Club implements Playable {
     @Override
     public void play() {
         portugueseLeague.simulate();
-        if(loseStreak == 3) {
+        if (loseStreak == 3) {
             player.setFired(true);
             player = null;
             name = name.replaceAll("\u001B\\[[;\\d]*m", "");
@@ -120,36 +120,56 @@ public class Club implements Playable {
     public void sell() {
         int count = 1;
         for (FootballPlayer footballPlayer : squad) {
-            System.out.println(count++ + " > " + footballPlayer.getName() + " | " + footballPlayer.getCost() + "€");
+            System.out.println("\u001b[31;1m" + count++ + "\u001b[0m > " + footballPlayer.getName() + " | " + footballPlayer.getCost() + "€" + " | Strength: " + footballPlayer.getStrength());
         }
-        System.out.println(0 + " > " + "Nobody.");
+        System.out.println(0 + " > " + "\uD835\uDDE1\uD835\uDDFC\uD835\uDDEF\uD835\uDDFC\uD835\uDDF1\uD835\uDE06.");
 
-        System.out.print("Player to sell: ");
-        int choice = sc.nextInt() - 1;
-        if (choice == -1) {
-        } else {
-            FootballPlayer player = squad.get(choice);
-            Market.addPlayerOnMarket(player);
-            System.out.println();
-            System.out.println(player.getName() + " added on the Market.");
+        try {
+            System.out.print("\nPlayer to sell: ");
+            int choice = sc.nextInt() - 1;
+            if (choice == -1) {
+            } else {
+                FootballPlayer player = squad.get(choice);
+                for (FootballPlayer footballPlayer : Market.getMarket()) {
+                    if (squad.get(choice).equals(footballPlayer))
+                        throw new AlreadyOnMarketException("Already on market.");
+                }
+                Market.addPlayerOnMarket(player);
+                System.out.println();
+                System.out.println(player.getName() + " \uD835\uDE56\uD835\uDE59\uD835\uDE59\uD835\uDE5A\uD835\uDE59 \uD835\uDE64\uD835\uDE63 \uD835\uDE69\uD835\uDE5D\uD835\uDE5A \uD835\uDE48\uD835\uDE56\uD835\uDE67\uD835\uDE60\uD835\uDE5A\uD835\uDE69.");
+            }
+        } catch (AlreadyOnMarketException e) {
+            System.out.println(e.getMessage());
         }
     }
 
     public void sellComputer() {
-        int getPlayerToSell = (int) (Math.random() * squad.size());
-        Market.addPlayerOnMarket(squad.get(getPlayerToSell));
-        System.out.println(squad.get(getPlayerToSell).getName() + " entered in the market by " + name);
+        try {
+            int getPlayerToSell = (int) (Math.random() * squad.size());
+            for (FootballPlayer footballPlayer : Market.getMarket()) {
+                if (squad.get(getPlayerToSell).equals(footballPlayer))
+                    throw new AlreadyOnMarketException("Already on market.");
+            }
+            Market.addPlayerOnMarket(squad.get(getPlayerToSell));
+            System.out.println(squad.get(getPlayerToSell).getName() + " \uD835\uDC86\uD835\uDC8F\uD835\uDC95\uD835\uDC86\uD835\uDC93\uD835\uDC86\uD835\uDC85 \uD835\uDC8A\uD835\uDC8F \uD835\uDC95\uD835\uDC89\uD835\uDC86 \uD835\uDC8E\uD835\uDC82\uD835\uDC93\uD835\uDC8C\uD835\uDC86\uD835\uDC95 \uD835\uDC83\uD835\uDC9A " + name);
+        } catch (AlreadyOnMarketException e) {
+            System.out.println(e.getMessage());
+        }
     }
 
     @Override
     public void buy() {
         if (Market.getMarket().isEmpty()) return;
         Market.seePlayersOnMarket();
-        System.out.println();
+        System.out.println(0 + " > " + "\uD835\uDDE1\uD835\uDDFC\uD835\uDDEF\uD835\uDDFC\uD835\uDDF1\uD835\uDE06.");
+        System.out.print("Option: ");
         int choice = sc.nextInt() - 1;
+        if(choice == -1) {
+            return;
+        }
         for (FootballPlayer footballPlayer : squad) {
-            if(Market.getMarket().get(choice).getName().equals(footballPlayer.getName())) {
-                System.out.println("You can't buy your player.");
+            if (Market.getMarket().get(choice).getName().equals(footballPlayer.getName())) {
+                System.out.println("\uD835\uDDEC\uD835\uDDFC\uD835\uDE02 \uD835\uDDF0\uD835\uDDEE\uD835\uDDFB'\uD835\uDE01 \uD835\uDDEF\uD835\uDE02\uD835\uDE06 \uD835\uDE06\uD835\uDDFC\uD835\uDE02\uD835\uDDFF \uD835\uDDFD\uD835\uDDF9\uD835\uDDEE\uD835\uDE06\uD835\uDDF2\uD835\uDDFF.");
                 return;
             }
         }
@@ -158,7 +178,7 @@ public class Club implements Playable {
         Club club = Market.getMarket().get(choice).getClub();
         club.getSquad().remove(choice);
         System.out.println();
-        System.out.println(Market.getMarket().get(choice).getName() + " was bought by " + name);
+        System.out.println(Market.getMarket().get(choice).getName() + " \uD835\uDE6C\uD835\uDE56\uD835\uDE68 \uD835\uDE57\uD835\uDE64\uD835\uDE6A\uD835\uDE5C\uD835\uDE5D\uD835\uDE69 \uD835\uDE57\uD835\uDE6E " + name);
         club_balance -= Market.getMarket().get(choice).getCost();
         Market.getMarket().remove(choice);
     }
@@ -167,7 +187,7 @@ public class Club implements Playable {
         if (Market.getMarket().isEmpty()) return;
         int random = (int) (Math.random() * Market.getMarket().size());
         for (FootballPlayer footballPlayer : squad) {
-            if(Market.getMarket().get(random).getName().equals(footballPlayer.getName())) {
+            if (Market.getMarket().get(random).getName().equals(footballPlayer.getName())) {
                 return;
             }
         }
@@ -176,7 +196,7 @@ public class Club implements Playable {
         Club club = Market.getMarket().get(random).getClub();
         FootballPlayer boughtPlayer = Market.getMarket().get(random);
         club.getSquad().remove(boughtPlayer);
-        System.out.println(Market.getMarket().get(random).getName() + " was bought by " + name);
+        System.out.println(Market.getMarket().get(random).getName() + " \uD835\uDE6C\uD835\uDE56\uD835\uDE68 \uD835\uDE57\uD835\uDE64\uD835\uDE6A\uD835\uDE5C\uD835\uDE5D\uD835\uDE69 \uD835\uDE57\uD835\uDE6E " + name);
         club_balance -= Market.getMarket().get(random).getCost();
         Market.getMarket().remove(random);
     }

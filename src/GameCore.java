@@ -26,26 +26,20 @@ public class GameCore {
     private boolean isValid = false;
 
     public void addPlayerToClub() {
-        getPortugueseClubListTeams();
-        System.out.print("Select the club: ");
-        int clubIndex = sc.nextInt();
+            getPortugueseClubListTeams();
+            System.out.print("\uD835\uDC7A\uD835\uDC86\uD835\uDC8D\uD835\uDC86\uD835\uDC84\uD835\uDC95 \uD835\uDC95\uD835\uDC89\uD835\uDC86 \uD835\uDC84\uD835\uDC8D\uD835\uDC96\uD835\uDC83: ");
+            int clubIndex = Integer.parseInt(sc.next());
 
-        while (clubIndex <= 0 || clubIndex > portugueseClubList.size()) {
-            System.out.print("\uD835\uDC70\uD835\uDC8F\uD835\uDC97\uD835\uDC82\uD835\uDC8D\uD835\uDC8A\uD835\uDC85 \uD835\uDC84\uD835\uDC8D\uD835\uDC96\uD835\uDC83. \uD835\uDC7B\uD835\uDC93\uD835\uDC9A \uD835\uDC82\uD835\uDC88\uD835\uDC82\uD835\uDC8A\uD835\uDC8F! \uD835\uDC76\uD835\uDC91\uD835\uDC95\uD835\uDC8A\uD835\uDC90\uD835\uDC8F: ");
-            clubIndex = sc.nextInt();
-        }
-
-        if (player.getClub() != null && player.getClub().equals(portugueseClubList.get(clubIndex - 1))) {
-            System.out.println("\n\uD835\uDE54\uD835\uDE64\uD835\uDE6A \uD835\uDE58\uD835\uDE56\uD835\uDE63'\uD835\uDE69 \uD835\uDE68\uD835\uDE5A\uD835\uDE61\uD835\uDE5A\uD835\uDE58\uD835\uDE69 \uD835\uDE69\uD835\uDE5D\uD835\uDE5A \uD835\uDE68\uD835\uDE56\uD835\uDE62\uD835\uDE5A \uD835\uDE58\uD835\uDE61\uD835\uDE6A\uD835\uDE57. \uD835\uDE54\uD835\uDE64\uD835\uDE6A \uD835\uDE59\uD835\uDE64\uD835\uDE63'\uD835\uDE69 \uD835\uDE5D\uD835\uDE56\uD835\uDE6B\uD835\uDE5A \uD835\uDE56 \uD835\uDE5C\uD835\uDE64\uD835\uDE64\uD835\uDE59 \uD835\uDE67\uD835\uDE5A\uD835\uDE61\uD835\uDE56\uD835\uDE69\uD835\uDE5E\uD835\uDE64\uD835\uDE63\uD835\uDE68\uD835\uDE5D\uD835\uDE5E\uD835\uDE65.\n");
-            addPlayerToClub();
-        } else {
-            player.setClub(portugueseClubList.get(clubIndex - 1));
-            portugueseClubList.get(clubIndex - 1).setPlayer(player);
-            player.setFired(false);
-            portugueseClubList.get(clubIndex-1).setName("\u001b[0m\u001b[4m"+portugueseClubList.get(clubIndex-1).getName()+"\u001B[0m");
-            System.out.println("Welcome! Let's start!");
-            System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
-        }
+            if (player.getClub() != null && player.getClub().equals(portugueseClubList.get(clubIndex - 1))) {
+                System.out.println("\n\uD835\uDE54\uD835\uDE64\uD835\uDE6A \uD835\uDE58\uD835\uDE56\uD835\uDE63'\uD835\uDE69 \uD835\uDE68\uD835\uDE5A\uD835\uDE61\uD835\uDE5A\uD835\uDE58\uD835\uDE69 \uD835\uDE69\uD835\uDE5D\uD835\uDE5A \uD835\uDE68\uD835\uDE56\uD835\uDE62\uD835\uDE5A \uD835\uDE58\uD835\uDE61\uD835\uDE6A\uD835\uDE57. \uD835\uDE54\uD835\uDE64\uD835\uDE6A \uD835\uDE59\uD835\uDE64\uD835\uDE63'\uD835\uDE69 \uD835\uDE5D\uD835\uDE56\uD835\uDE6B\uD835\uDE5A \uD835\uDE56 \uD835\uDE5C\uD835\uDE64\uD835\uDE64\uD835\uDE59 \uD835\uDE67\uD835\uDE5A\uD835\uDE61\uD835\uDE56\uD835\uDE69\uD835\uDE5E\uD835\uDE64\uD835\uDE63\uD835\uDE68\uD835\uDE5D\uD835\uDE5E\uD835\uDE65.\n");
+                addPlayerToClub();
+            } else {
+                player.setClub(portugueseClubList.get(clubIndex - 1));
+                portugueseClubList.get(clubIndex - 1).setPlayer(player);
+                player.setFired(false);
+                portugueseClubList.get(clubIndex - 1).setName("\u001b[0m\u001b[4m" + portugueseClubList.get(clubIndex - 1).getName() + "\u001B[0m");
+                System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+            }
     }
 
     public void rules() {
@@ -55,6 +49,7 @@ public class GameCore {
     public void simulate() {
             player.getClub().setName("\u001b[47;1m" + player.getClub().getName() + "\u001b[0m");
             player.getClub().play();
+            setAverageClub();
             checkClassification();
     }
 
@@ -393,15 +388,17 @@ public class GameCore {
         portugueseClubList.add(ClubFactory.create(ClubType.FC_VIZELA));
         portugueseClubList.add(ClubFactory.create(ClubType.CASA_PIA_AC));
         portugueseClubList.add(ClubFactory.create(ClubType.RIO_AVE_FC));
-        portugueseClubList.add(ClubFactory.create(ClubType.GD_CHAVES);
+        portugueseClubList.add(ClubFactory.create(ClubType.GD_CHAVES));
         portugueseClubList.add(ClubFactory.create(ClubType.FC_AROUCA));
-
-
     }
 
     public void getMoreClubPlayers(int choice) {
-        for (FootballPlayer footballPlayer : portugueseClubList.get(choice-1).getSquad()) {
-            System.out.println("Name: \u001b[33m" + footballPlayer.getName() + "\u001b[0m | \u001b[31m\uD835\uDE3E\uD835\uDE64\uD835\uDE68\uD835\uDE69:\u001b[0m " + footballPlayer.getCost() + "€ | \u001b[31m\uD835\uDE4E\uD835\uDE69\uD835\uDE67\uD835\uDE5A\uD835\uDE63\uD835\uDE5C\uD835\uDE69\uD835\uDE5D:\u001b[0m " + footballPlayer.getStrength()+ " | \u001b[33m\uD835\uDE42\uD835\uDE64\uD835\uDE56\uD835\uDE61\uD835\uDE68:\u001b[0m " + footballPlayer.getGoals() + " | \u001b[33m\uD835\uDE3C\uD835\uDE68\uD835\uDE68\uD835\uDE5E\uD835\uDE68\uD835\uDE69\uD835\uDE68:\u001b[0m " + footballPlayer.getAssists());
+        if(choice < portugueseClubList.size()) {
+            for (FootballPlayer footballPlayer : portugueseClubList.get(choice - 1).getSquad()) {
+                System.out.println("Name: \u001b[33m" + footballPlayer.getName() + "\u001b[0m | \u001b[31m\uD835\uDE3E\uD835\uDE64\uD835\uDE68\uD835\uDE69:\u001b[0m " + footballPlayer.getCost() + "€ | \u001b[31m\uD835\uDE4E\uD835\uDE69\uD835\uDE67\uD835\uDE5A\uD835\uDE63\uD835\uDE5C\uD835\uDE69\uD835\uDE5D:\u001b[0m " + footballPlayer.getStrength() + " | \u001b[33m\uD835\uDE42\uD835\uDE64\uD835\uDE56\uD835\uDE61\uD835\uDE68:\u001b[0m " + footballPlayer.getGoals() + " | \u001b[33m\uD835\uDE3C\uD835\uDE68\uD835\uDE68\uD835\uDE5E\uD835\uDE68\uD835\uDE69\uD835\uDE68:\u001b[0m " + footballPlayer.getAssists());
+            }
+        } else {
+            System.out.println("\uD835\uDC70\uD835\uDC8F\uD835\uDC97\uD835\uDC82\uD835\uDC8D\uD835\uDC8A\uD835\uDC85 \uD835\uDC84\uD835\uDC8D\uD835\uDC96\uD835\uDC83.");
         }
     }
 
