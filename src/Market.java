@@ -18,4 +18,8 @@ public class Market {
     static public void addPlayerOnMarket(FootballPlayer footballPlayer) {
         market.add(footballPlayer);
     }
+
+    public static ArrayList<FootballPlayer> getMarket() {
+        return market;
+    }
 }

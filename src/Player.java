@@ -2,6 +2,7 @@ import java.util.Scanner;
 
 public class Player {
     private Club club;
+    private boolean isFired = false;
     private Scanner sc = new Scanner(System.in);
 
     public Club getClub() {
@@ -12,5 +13,11 @@ public class Player {
         this.club = club;
     }
 
+    public void setFired(boolean fired) {
+        isFired = fired;
+    }
 
+    public boolean isFired() {
+        return isFired;
+    }
 }

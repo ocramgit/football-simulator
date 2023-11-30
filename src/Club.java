@@ -4,16 +4,18 @@ import java.util.Scanner;
 public class Club implements Playable {
     private ArrayList<FootballPlayer> squad;
     private String name;
-    private int club_balance, average_strength, matches, wins, losses, draws, points, goalsScored, goalsConceded;
+    private int club_balance, average_strength, matches, wins, losses, draws, points, goalsScored, goalsConceded, loseStreak;
     private Scanner sc;
     private PortugueseLeague portugueseLeague;
     private Player player;
+    private int classification = 0;
 
     public Club(String name, int clubBalance) {
         squad = new ArrayList<>();
         this.name = name;
         sc = new Scanner(System.in);
         portugueseLeague = new PortugueseLeague(League.clubs);
+        this.club_balance = clubBalance;
     }
 
     public void setWins(int wins) {
@@ -106,10 +108,11 @@ public class Club implements Playable {
 
     @Override
     public void play() {
-        if(squad.size() > 10) {
-            portugueseLeague.simulate();
-        } else {
-            System.out.println("Your team don't have 11 players. Go to the market.");
+        portugueseLeague.simulate();
+        if(loseStreak == 1) {
+            player.setFired(true);
+            player = null;
+            name = name.replaceAll("\u001B\\[[;\\d]*m", "");
         }
     }
 
@@ -117,23 +120,72 @@ public class Club implements Playable {
     public void sell() {
         int count = 1;
         for (FootballPlayer footballPlayer : squad) {
-            System.out.println(count++ + " > " + footballPlayer.getName() + " | " + footballPlayer.getCost()+"€");
+            System.out.println(count++ + " > " + footballPlayer.getName() + " | " + footballPlayer.getCost() + "€");
         }
+        System.out.println(0 + " > " + "Nobody.");
 
         System.out.print("Player to sell: ");
-        FootballPlayer player = squad.get(sc.nextInt()-1);
-
-        Market.addPlayerOnMarket(player);
+        int choice = sc.nextInt() - 1;
+        if (choice == -1) {
+        } else {
+            FootballPlayer player = squad.get(choice);
+            Market.addPlayerOnMarket(player);
+            System.out.println();
+            System.out.println(player.getName() + " added on the Market.");
+        }
     }
 
     public void sellComputer() {
-        int getPlayerToSell = (int) (Math.random() * 11);
+        int getPlayerToSell = (int) (Math.random() * squad.size());
         Market.addPlayerOnMarket(squad.get(getPlayerToSell));
+        System.out.println(squad.get(getPlayerToSell).getName() + " entered in the market by " + name);
     }
 
     @Override
     public void buy() {
+        if (Market.getMarket().isEmpty()) return;
         Market.seePlayersOnMarket();
-        System.out.println("What player you want to buy?");
+        System.out.println();
+        int choice = sc.nextInt() - 1;
+        for (FootballPlayer footballPlayer : squad) {
+            if(Market.getMarket().get(choice).getName().equals(footballPlayer.getName())) {
+                System.out.println("You can't buy your player.");
+                return;
+            }
+        }
+        if (club_balance < Market.getMarket().get(choice).getCost()) return;
+        squad.add(Market.getMarket().get(choice));
+        Club club = Market.getMarket().get(choice).getClub();
+        club.getSquad().remove(choice);
+        System.out.println();
+        System.out.println(Market.getMarket().get(choice).getName() + " was bought by " + name);
+        club_balance -= Market.getMarket().get(choice).getCost();
+        Market.getMarket().remove(choice);
+    }
+
+    public void buyComputer() {
+        if (Market.getMarket().isEmpty()) return;
+        int random = (int) (Math.random() * Market.getMarket().size());
+        for (FootballPlayer footballPlayer : squad) {
+            if(Market.getMarket().get(random).getName().equals(footballPlayer.getName())) {
+                return;
+            }
+        }
+        if (club_balance < Market.getMarket().get(random).getCost()) return;
+        squad.add(Market.getMarket().get(random));
+        Club club = Market.getMarket().get(random).getClub();
+        FootballPlayer boughtPlayer = Market.getMarket().get(random);
+        club.getSquad().remove(boughtPlayer);
+        System.out.println(Market.getMarket().get(random).getName() + " was bought by " + name);
+        club_balance -= Market.getMarket().get(random).getCost();
+        Market.getMarket().remove(random);
+    }
+
+    public int getLoseStreak() {
+        return loseStreak;
+    }
+
+    public void setLoseStreak(int loseStreak) {
+        this.loseStreak = loseStreak;
     }
 }

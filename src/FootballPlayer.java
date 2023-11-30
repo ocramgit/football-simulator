@@ -40,4 +40,20 @@ public class FootballPlayer {
     public int getCost() {
         return cost;
     }
+
+    public void setAssists(int assists) {
+        this.assists = assists;
+    }
+
+    public void setGoals(int goals) {
+        this.goals = goals;
+    }
+
+    public int getGoals() {
+        return goals;
+    }
+
+    public int getAssists() {
+        return assists;
+    }
 }
