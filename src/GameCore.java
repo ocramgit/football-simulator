@@ -176,7 +176,6 @@ public class GameCore {
         portugueseClubList.get(11).getSquad().add(new FootballPlayer("Fábio Martins", 4500000, 79, portugueseClubList.get(11)));
         portugueseClubList.get(11).getSquad().add(new FootballPlayer("Renan Oliveira", 1500000, 72, portugueseClubList.get(11)));
 
-// Estoril Praia
         portugueseClubList.get(12).getSquad().add(new FootballPlayer("André Vidigal", 1200000, 72, portugueseClubList.get(12)));
         portugueseClubList.get(12).getSquad().add(new FootballPlayer("Joãozinho", 800000, 73, portugueseClubList.get(12)));
         portugueseClubList.get(12).getSquad().add(new FootballPlayer("Hugo Gomes", 1000000, 70, portugueseClubList.get(12)));
@@ -189,7 +188,6 @@ public class GameCore {
         portugueseClubList.get(12).getSquad().add(new FootballPlayer("Hugo Basto", 2200000, 75, portugueseClubList.get(12)));
         portugueseClubList.get(12).getSquad().add(new FootballPlayer("Gonçalo Santos", 1000000, 70, portugueseClubList.get(12)));
 
-// FC Vizela
         portugueseClubList.get(13).getSquad().add(new FootballPlayer("Hugo Basto", 1500000, 74, portugueseClubList.get(13)));
         portugueseClubList.get(13).getSquad().add(new FootballPlayer("Moussa Bana", 2000000, 75, portugueseClubList.get(13)));
         portugueseClubList.get(13).getSquad().add(new FootballPlayer("Edu Machado", 1800000, 76, portugueseClubList.get(13)));
@@ -202,7 +200,6 @@ public class GameCore {
         portugueseClubList.get(13).getSquad().add(new FootballPlayer("Diogo Ribeiro", 1200000, 70, portugueseClubList.get(13)));
         portugueseClubList.get(13).getSquad().add(new FootballPlayer("Koffi Kouao", 2500000, 79, portugueseClubList.get(13)));
 
-// Casa Pia AC
         portugueseClubList.get(14).getSquad().add(new FootballPlayer("David Rosa", 1000000, 70, portugueseClubList.get(14)));
         portugueseClubList.get(14).getSquad().add(new FootballPlayer("Vasco Rocha", 1200000, 71, portugueseClubList.get(14)));
         portugueseClubList.get(14).getSquad().add(new FootballPlayer("Pedro Machado", 1800000, 75, portugueseClubList.get(14)));
@@ -215,7 +212,6 @@ public class GameCore {
         portugueseClubList.get(14).getSquad().add(new FootballPlayer("Tomás Silva", 1100000, 79, portugueseClubList.get(14)));
         portugueseClubList.get(14).getSquad().add(new FootballPlayer("Tiago Morgado", 1700000, 76, portugueseClubList.get(14)));
 
-// Rio Ave FC
         portugueseClubList.get(15).getSquad().add(new FootballPlayer("Fábio Coentrão", 5000000, 82, portugueseClubList.get(15)));
         portugueseClubList.get(15).getSquad().add(new FootballPlayer("Gelson Dala", 3000000, 80, portugueseClubList.get(15)));
         portugueseClubList.get(15).getSquad().add(new FootballPlayer("Ivo Pinto", 2200000, 78, portugueseClubList.get(15)));
@@ -228,7 +224,6 @@ public class GameCore {
         portugueseClubList.get(15).getSquad().add(new FootballPlayer("Juninho", 1300000, 79, portugueseClubList.get(15)));
         portugueseClubList.get(15).getSquad().add(new FootballPlayer("Wesley", 1100000, 77, portugueseClubList.get(15)));
 
-// GD Chaves
         portugueseClubList.get(16).getSquad().add(new FootballPlayer("Tiago Pereira", 1000000, 72, portugueseClubList.get(16)));
         portugueseClubList.get(16).getSquad().add(new FootballPlayer("Erick Moreno", 1500000, 73, portugueseClubList.get(16)));
         portugueseClubList.get(16).getSquad().add(new FootballPlayer("André Gomes", 1200000, 74, portugueseClubList.get(16)));
@@ -253,7 +248,6 @@ public class GameCore {
         portugueseClubList.get(17).getSquad().add(new FootballPlayer("João Teixeira", 1400000, 81, portugueseClubList.get(17)));
         portugueseClubList.get(17).getSquad().add(new FootballPlayer("João Lopes", 1600000, 82, portugueseClubList.get(17)));
 
-
         portugueseClubList.get(3).getSquad().add(new FootballPlayer("Wellington Silva", 2000000, 78, portugueseClubList.get(17)));
         portugueseClubList.get(3).getSquad().add(new FootballPlayer("Galeno", 2500000, 80, portugueseClubList.get(17)));
         portugueseClubList.get(3).getSquad().add(new FootballPlayer("Ricardo Mangas", 1800000, 76, portugueseClubList.get(17)));
@@ -266,7 +260,6 @@ public class GameCore {
         portugueseClubList.get(3).getSquad().add(new FootballPlayer("Sérgio Oliveira", 3000000, 81, portugueseClubList.get(17)));
         portugueseClubList.get(3).getSquad().add(new FootballPlayer("Alex Soares", 1700000, 79, portugueseClubList.get(17)));
 
-// Marítimo
         portugueseClubList.get(4).getSquad().add(new FootballPlayer("Rodrigo Pinho", 4000000, 88, portugueseClubList.get(4)));
         portugueseClubList.get(4).getSquad().add(new FootballPlayer("Jean Irmer", 2800000, 83, portugueseClubList.get(4)));
         portugueseClubList.get(4).getSquad().add(new FootballPlayer("André Carvalhas", 1500000, 81, portugueseClubList.get(4)));
@@ -279,7 +272,6 @@ public class GameCore {
         portugueseClubList.get(4).getSquad().add(new FootballPlayer("François-Xavier Fumu Tamuzo", 1700000, 78, portugueseClubList.get(4)));
         portugueseClubList.get(4).getSquad().add(new FootballPlayer("Júlio César", 1200000, 86, portugueseClubList.get(4)));
 
-// Santa Clara
         portugueseClubList.get(5).getSquad().add(new FootballPlayer("Rashid", 2000000, 79, portugueseClubList.get(5)));
         portugueseClubList.get(5).getSquad().add(new FootballPlayer("Zaidu Sanusi", 2200000, 80, portugueseClubList.get(5)));
         portugueseClubList.get(5).getSquad().add(new FootballPlayer("Pablo Teixeira", 1800000, 78, portugueseClubList.get(5)));
@@ -292,7 +284,6 @@ public class GameCore {
         portugueseClubList.get(5).getSquad().add(new FootballPlayer("Vladimir Bajić", 2200000, 80, portugueseClubList.get(5)));
         portugueseClubList.get(5).getSquad().add(new FootballPlayer("João Afonso", 1700000, 77, portugueseClubList.get(5)));
 
-// Tondela
         portugueseClubList.get(6).getSquad().add(new FootballPlayer("António Xavier", 1500000, 76, portugueseClubList.get(6)));
         portugueseClubList.get(6).getSquad().add(new FootballPlayer("João Mendes", 1200000, 74, portugueseClubList.get(6)));
         portugueseClubList.get(6).getSquad().add(new FootballPlayer("Beunardeau", 1800000, 75, portugueseClubList.get(6)));
@@ -305,7 +296,6 @@ public class GameCore {
         portugueseClubList.get(6).getSquad().add(new FootballPlayer("Jhon Murillo", 3000000, 82, portugueseClubList.get(6)));
         portugueseClubList.get(6).getSquad().add(new FootballPlayer("Tiago Almeida", 1300000, 71, portugueseClubList.get(6)));
 
-// Paços de Ferreira
         portugueseClubList.get(7).getSquad().add(new FootballPlayer("Luiz Carlos", 1800000, 75, portugueseClubList.get(7)));
         portugueseClubList.get(7).getSquad().add(new FootballPlayer("Stephen Eustáquio", 2200000, 77, portugueseClubList.get(7)));
         portugueseClubList.get(7).getSquad().add(new FootballPlayer("Jorge Silva", 1500000, 76, portugueseClubList.get(7)));
@@ -318,7 +308,6 @@ public class GameCore {
         portugueseClubList.get(7).getSquad().add(new FootballPlayer("Walterson", 1400000, 72, portugueseClubList.get(7)));
         portugueseClubList.get(7).getSquad().add(new FootballPlayer("Luiz Phellype", 2800000, 81, portugueseClubList.get(7)));
 
-        // FC Famalicão
         portugueseClubList.get(8).getSquad().add(new FootballPlayer("Lucas Lima", 2500000, 76, portugueseClubList.get(8)));
         portugueseClubList.get(8).getSquad().add(new FootballPlayer("Vinícius Pereira", 2800000, 78, portugueseClubList.get(8)));
         portugueseClubList.get(8).getSquad().add(new FootballPlayer("Ricardo Quaresma", 4000000, 80, portugueseClubList.get(8)));
@@ -331,7 +320,6 @@ public class GameCore {
         portugueseClubList.get(8).getSquad().add(new FootballPlayer("Ruben Vinagre", 4000000, 81, portugueseClubList.get(8)));
         portugueseClubList.get(8).getSquad().add(new FootballPlayer("Mateus", 1600000, 74, portugueseClubList.get(8)));
 
-// SC Farense
         portugueseClubList.get(9).getSquad().add(new FootballPlayer("Beto", 2000000, 77, portugueseClubList.get(9)));
         portugueseClubList.get(9).getSquad().add(new FootballPlayer("André Pinto", 1800000, 76, portugueseClubList.get(9)));
         portugueseClubList.get(9).getSquad().add(new FootballPlayer("Jonas Mendes", 1500000, 75, portugueseClubList.get(9)));
@@ -344,7 +332,6 @@ public class GameCore {
         portugueseClubList.get(9).getSquad().add(new FootballPlayer("Licá", 2200000, 79, portugueseClubList.get(9)));
         portugueseClubList.get(9).getSquad().add(new FootballPlayer("Fabrício Isidoro", 1600000, 74, portugueseClubList.get(9)));
 
-// Boavista FC
         portugueseClubList.get(10).getSquad().add(new FootballPlayer("Léo Jardim", 3000000, 80, portugueseClubList.get(10)));
         portugueseClubList.get(10).getSquad().add(new FootballPlayer("Paulinho", 2800000, 78, portugueseClubList.get(10)));
         portugueseClubList.get(10).getSquad().add(new FootballPlayer("Nathan", 2200000, 76, portugueseClubList.get(10)));
@@ -390,24 +377,26 @@ public class GameCore {
     }
 
     private void addClubsToThePortugueseClubList() {
-        portugueseClubList.add(new Club("Sporting CP", 1000000000));
-        portugueseClubList.add(new Club("SL Benfica", 2000000000));
-        portugueseClubList.add(new Club("FC Porto", 1500000000));
-        portugueseClubList.add(new Club("Estrela Amadora", 540000000));
-        portugueseClubList.add(new Club("SC Braga", 900000000));
-        portugueseClubList.add(new Club("Moreirense", 2000000000));
-        portugueseClubList.add(new Club("Vitória SC", 400000000));
-        portugueseClubList.add(new Club("FC Famalicão", 600000000));
-        portugueseClubList.add(new Club("SC Farense", 300000000));
-        portugueseClubList.add(new Club("Boavista FC", 500000000));
-        portugueseClubList.add(new Club("Portimonense", 250000000));
-        portugueseClubList.add(new Club("Gil Vicente FC", 460000000));
-        portugueseClubList.add(new Club("Estoril Praia", 1600000000));
-        portugueseClubList.add(new Club("FC Vizela", 380000000));
-        portugueseClubList.add(new Club("Casa Pia AC", 1700000000));
-        portugueseClubList.add(new Club("Rio Ave FC", 500000000));
-        portugueseClubList.add(new Club("GD Chaves", 310000000));
-        portugueseClubList.add(new Club("FC Arouca", 1000000000));
+        portugueseClubList.add(ClubFactory.create(ClubType.SPORTING_CP));
+        portugueseClubList.add(ClubFactory.create(ClubType.SL_BENFICA));
+        portugueseClubList.add(ClubFactory.create(ClubType.FC_PORTO));
+        portugueseClubList.add(ClubFactory.create(ClubType.ESTRELA_AMADORA));
+        portugueseClubList.add(ClubFactory.create(ClubType.SC_BRAGA));
+        portugueseClubList.add(ClubFactory.create(ClubType.MOREIRENSE));
+        portugueseClubList.add(ClubFactory.create(ClubType.VITORIA_SC));
+        portugueseClubList.add(ClubFactory.create(ClubType.FC_FAMALICAO));
+        portugueseClubList.add(ClubFactory.create(ClubType.SC_FARENSE));
+        portugueseClubList.add(ClubFactory.create(ClubType.BOAVISTA_FC));
+        portugueseClubList.add(ClubFactory.create(ClubType.PORTIMONENSE));
+        portugueseClubList.add(ClubFactory.create(ClubType.GIL_VICENTE_FC));
+        portugueseClubList.add(ClubFactory.create(ClubType.ESTORIL_PRAIA));
+        portugueseClubList.add(ClubFactory.create(ClubType.FC_VIZELA));
+        portugueseClubList.add(ClubFactory.create(ClubType.CASA_PIA_AC));
+        portugueseClubList.add(ClubFactory.create(ClubType.RIO_AVE_FC));
+        portugueseClubList.add(ClubFactory.create(ClubType.GD_CHAVES);
+        portugueseClubList.add(ClubFactory.create(ClubType.FC_AROUCA));
+
+
     }
 
     public void getMoreClubPlayers(int choice) {
