@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.InputMismatchException;
+import java.util.Iterator;
 import java.util.Scanner;
 
 public class Club implements Playable {
@@ -143,7 +144,7 @@ public class Club implements Playable {
                 FootballPlayer player = squad.get(choice);
                 for (FootballPlayer footballPlayer : Market.getMarket()) {
                     if (squad.get(choice).equals(footballPlayer))
-                        throw new AlreadyOnMarketException("Already on market.");
+                        throw new AlreadyOnMarketException("An anonymous club tried to sell a player that is already on market.");
                 }
                 Market.addPlayerOnMarket(player);
                 System.out.println();
@@ -159,7 +160,7 @@ public class Club implements Playable {
             int getPlayerToSell = (int) (Math.random() * squad.size());
             for (FootballPlayer footballPlayer : Market.getMarket()) {
                 if (squad.get(getPlayerToSell).equals(footballPlayer))
-                    throw new AlreadyOnMarketException("Already on market.");
+                    return;
             }
             Market.addPlayerOnMarket(squad.get(getPlayerToSell));
             System.out.println(squad.get(getPlayerToSell).getName() + " \uD835\uDC86\uD835\uDC8F\uD835\uDC95\uD835\uDC86\uD835\uDC93\uD835\uDC86\uD835\uDC85 \uD835\uDC8A\uD835\uDC8F \uD835\uDC95\uD835\uDC89\uD835\uDC86 \uD835\uDC8E\uD835\uDC82\uD835\uDC93\uD835\uDC8C\uD835\uDC86\uD835\uDC95 \uD835\uDC83\uD835\uDC9A " + name);
@@ -171,8 +172,10 @@ public class Club implements Playable {
     @Override
     public void buy() {
         if (Market.getMarket().isEmpty()) return;
+
         Market.seePlayersOnMarket();
         System.out.println(0 + " > " + "\uD835\uDDE1\uD835\uDDFC\uD835\uDDEF\uD835\uDDFC\uD835\uDDF1\uD835\uDE06.");
+
         int choice;
         while (true) {
             try {
@@ -184,24 +187,26 @@ public class Club implements Playable {
                 sc.next();
             }
         }
-        if(choice == -1) {
+
+        if (choice == -1) {
             return;
         }
-        for (FootballPlayer footballPlayer : squad) {
-            if (Market.getMarket().get(choice).getName().equals(footballPlayer.getName())) {
-                System.out.println("\uD835\uDDEC\uD835\uDDFC\uD835\uDE02 \uD835\uDDF0\uD835\uDDEE\uD835\uDDFB'\uD835\uDE01 \uD835\uDDEF\uD835\uDE02\uD835\uDE06 \uD835\uDE06\uD835\uDDFC\uD835\uDE02\uD835\uDDFF \uD835\uDDFD\uD835\uDDF9\uD835\uDDEE\uD835\uDE06\uD835\uDDF2\uD835\uDDFF.");
-                return;
-            }
+
+        FootballPlayer selectedPlayer = Market.getMarket().get(choice);
+
+        if (!squad.contains(selectedPlayer)) {
+            squad.add(selectedPlayer);
+
+            club_balance -= selectedPlayer.getCost();
+            Market.getMarket().remove(choice);
+
+            System.out.println(selectedPlayer.getName() + " \uD835\uDE6C\uD835\uDE56\uD835\uDE68 \uD835\uDE57\uD835\uDE64\uD835\uDE6A\uD835\uDE5C\uD835\uDE5D\uD835\uDE69 \uD835\uDE57\uD835\uDE6E " + name);
+        } else {
+            System.out.println(selectedPlayer.getName() + " já está no seu clube.");
         }
-        if (club_balance < Market.getMarket().get(choice).getCost()) return;
-        squad.add(Market.getMarket().get(choice));
-        Club club = Market.getMarket().get(choice).getClub();
-        club.getSquad().remove(choice);
-        System.out.println();
-        System.out.println(Market.getMarket().get(choice).getName() + " \uD835\uDE6C\uD835\uDE56\uD835\uDE68 \uD835\uDE57\uD835\uDE64\uD835\uDE6A\uD835\uDE5C\uD835\uDE5D\uD835\uDE69 \uD835\uDE57\uD835\uDE6E " + name);
-        club_balance -= Market.getMarket().get(choice).getCost();
-        Market.getMarket().remove(choice);
     }
+
+
 
     public void buyComputer() {
         if (Market.getMarket().isEmpty()) return;

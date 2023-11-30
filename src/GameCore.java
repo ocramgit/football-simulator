@@ -38,7 +38,7 @@ public class GameCore {
                 if (clubIndex >= 0 && clubIndex < portugueseClubList.size()) {
                     break;
                 } else {
-                    System.out.println("\uD835\uDE44\uD835\uDE63\uD835\uDE6B\uD835\uDE56\uD835\uDE61\uD835\uDE5E\uD835\uDE59 \uD835\uDE58\uD835\uDE61\uD835\uDE6A\uD835\uDE57. \uD835\uDE4E\uD835\uDE5A\uD835\uDE61\uD835\uDE5A\uD835\uDE58\uD835\uDE69 \uD835\uDE56\uD835\uDE63\uD835\uDE64\uD835\uDE69\uD835\uDE5D\uD835\uDE5A\uD835\uDE67.");
+                    System.out.println("\uD835\uDE44\uD835\uDE63\uD835\uDE6B\uD835\uDE56\uD835\uDE61\uD835\uDE5E\uD835\uDE59 \uD835\uDE58\uD835\uDE61\uD835\uDE6A\uD835\uDE57.");
                 }
             } catch (InputMismatchException e) {
                 System.out.println("\uD835\uDE44\uD835\uDE63\uD835\uDE6B\uD835\uDE56\uD835\uDE61\uD835\uDE5E\uD835\uDE59 \uD835\uDE63\uD835\uDE6A\uD835\uDE62\uD835\uDE57\uD835\uDE5A\uD835\uDE67.");
@@ -412,7 +412,7 @@ public class GameCore {
 
     public void getMoreClubPlayers(int choice) {
         if (choice < portugueseClubList.size()) {
-            for (FootballPlayer footballPlayer : portugueseClubList.get(choice - 1).getSquad()) {
+            for (FootballPlayer footballPlayer : portugueseClubList.get(choice-1).getSquad()) {
                 System.out.println("Name: \u001b[33m" + footballPlayer.getName() + "\u001b[0m | \u001b[31m\uD835\uDE3E\uD835\uDE64\uD835\uDE68\uD835\uDE69:\u001b[0m " + footballPlayer.getCost() + "€ | \u001b[31m\uD835\uDE4E\uD835\uDE69\uD835\uDE67\uD835\uDE5A\uD835\uDE63\uD835\uDE5C\uD835\uDE69\uD835\uDE5D:\u001b[0m " + footballPlayer.getStrength() + " | \u001b[33m\uD835\uDE42\uD835\uDE64\uD835\uDE56\uD835\uDE61\uD835\uDE68:\u001b[0m " + footballPlayer.getGoals() + " | \u001b[33m\uD835\uDE3C\uD835\uDE68\uD835\uDE68\uD835\uDE5E\uD835\uDE68\uD835\uDE69\uD835\uDE68:\u001b[0m " + footballPlayer.getAssists());
             }
         } else {
